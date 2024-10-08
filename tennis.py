@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -10,9 +11,16 @@ from mpl_toolkits.mplot3d import Axes3D
 def get_column(matrix, col_index):
     return [row[col_index] for row in matrix]
 
+filename = ""
+if len(sys.argv) != 2:
+    print("Usage: python script.py <your_string>")
+    raise RuntimeError("provide file to read from")
+else:
+    filename = sys.argv[1]
+
 #import csv
 data = []
-with open('Newshoulderdata.txt', 'r') as file:
+with open(filename, 'r') as file:
     reader = csv.reader(file, delimiter = ' ')
     for row in reader:
         cleaned_row = [float(value) for value in row if value]
@@ -50,8 +58,6 @@ def draw_player(shoulder_angle, elbow_angle, wrist_angle):
     ax.plot([shoulder[0], elbow[0]], [shoulder[1], elbow[1]], [shoulder[2], elbow[2]], color='blue', linewidth=6)
     ax.plot([elbow[0], wrist[0]], [elbow[1], wrist[1]], [elbow[2], wrist[2]], color='blue', linewidth=6)
     ax.plot([wrist[0], racket[0]], [wrist[1], racket[1]], [wrist[2], racket[2]], color='red', linewidth=3)  # Racket
-
-    # Draw the body
     ax.plot([0, 0], [0, 0], [0, -1], color='green', linewidth=8)  # Body
 
     # Set limits and labels
