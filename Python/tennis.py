@@ -50,7 +50,7 @@ def draw_player(shoulder_angle, elbow_angle, wrist_angle):
                                  ])
     elbowM = np.dot(elbow, elbow)
     elbow = elbow / elbowM
-    elbow = np.sqrt(elbow)
+    elbow = np.sqrt(abs(elbow))
     wrist = elbow + np.array([np.cos(np.radians(elbow_angle)),
                               np.sin(np.radians(elbow_angle)),
                               0])
@@ -86,14 +86,6 @@ plt.show()
 
 i = [0]
 
-# Update function for sliders
-def update(val):
-    elbow_angle = slider_elbow.val
-    wrist_angle = slider_wrist.val
-
-slider_elbow.on_changed(update)
-slider_wrist.on_changed(update)
-
 firstShoulderPos = data[i[0]]
 
 # Initial draw
@@ -102,6 +94,6 @@ draw_player(data[i[0]], elbow_angle, wrist_angle)
 while True:
     i[0] += 1
     print(data[i[0]])
-    draw_player(data[i[0]], elbow_angle, wrist_angle)
+    draw_player(data[i[0]], slider_elbow.val, slider_wrist.val)
     plt.draw()
-    plt.pause(0.1)
+    plt.pause(0.005)
