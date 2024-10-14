@@ -7,16 +7,15 @@ import csv
 from matplotlib.widgets import Slider
 from mpl_toolkits.mplot3d import Axes3D
 
-# Function to extract a column
-def get_column(matrix, col_index):
-    return [row[col_index] for row in matrix]
+import tkinter as tk
+from tkinter import filedialog
 
-filename = ""
-if len(sys.argv) != 2:
-    print("Usage: python script.py <your_string>")
-    raise RuntimeError("provide file to read from")
-else:
-    filename = sys.argv[1]
+def select_file():
+    file_path = filedialog.askopenfilename(title="Select a file", filetypes=(("CSV files", "*.csv"), ("All files", "*.*")))
+    if file_path:
+        return file_path
+
+filename = select_file()
 
 #import csv
 data = []
@@ -48,9 +47,7 @@ def draw_player(shoulder_angle, elbow_angle, wrist_angle):
                                  np.sin(np.radians(shoulder_angle[1])),
                                  np.sin(np.radians(shoulder_angle[2])),
                                  ])
-    elbowM = np.dot(elbow, elbow)
-    elbow = elbow / elbowM
-    elbow = np.sqrt(abs(elbow))
+    elbow = elbow / np.linalg.norm(elbow)
     wrist = elbow + np.array([np.cos(np.radians(elbow_angle)),
                               np.sin(np.radians(elbow_angle)),
                               0])
@@ -96,4 +93,4 @@ while True:
     print(data[i[0]])
     draw_player(data[i[0]], slider_elbow.val, slider_wrist.val)
     plt.draw()
-    plt.pause(0.005)
+    plt.pause(0.01)
