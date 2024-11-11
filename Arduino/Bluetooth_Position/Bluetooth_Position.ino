@@ -3,15 +3,17 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
+#include <SoftwareSerial.h>
 
 /* Set the delay between fresh samples */
 #define BNO055_SAMPLERATE_DELAY_MS (100)
-#define USE_PIN // Uncomment this to use PIN during pairing. The pin is specified on the line below
+//#define USE_PIN // Uncomment this to use PIN during pairing. The pin is specified on the line below
 const char *pin = "1234"; // Change this to more secure PIN.
 
 String device_name = "ESP32-BT-Sensor";
 
-BluetoothSerial SerialBT;
+//BluetoothSerial SerialBT;
+SoftwareSerial btserial (3,2);
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
 
 #if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
@@ -39,13 +41,14 @@ void displaySensorDetails(void) {
 
 void setup() {
   Serial.begin(115200);
-  SerialBT.begin(device_name); // Start Bluetooth device
+  btserial.begin(9600);
+  //SerialBT.begin(device_name); // Start Bluetooth device
   Serial.printf("The device with name \"%s\" is started.\nNow you can pair it with Bluetooth!\n", device_name.c_str());
 
-  #ifdef USE_PIN
-    SerialBT.setPin(pin);
-    Serial.println("Using PIN");
-  #endif
+  //#ifdef USE_PIN
+  //  SerialBT.setPin(pin);
+  //  Serial.println("Using PIN");
+  //#endif
 
   // Initialize the BNO055 sensor
   if (!bno.begin()) {
@@ -71,14 +74,17 @@ void loop() {
   sensorData += String((float)event.orientation.z) + "\n";
 
   Serial.print(sensorData);      // Print sensor data to Serial Monitor
-  SerialBT.print(sensorData);    // Send sensor data over Bluetooth
+  //SerialBT.print(sensorData);    // Send sensor data over Bluetooth
+  btserial.print(sensorData);
 
   // Bluetooth communication from Serial Monitor
   if (Serial.available()) {
-    SerialBT.write(Serial.read());
+    //SerialBT.write(Serial.read());
+    btserial.write(Serial.read());
   }
-  if (SerialBT.available()) {
-    Serial.write(SerialBT.read());
+  
+  if (btserial.available()) {
+    Serial.write(btserial.read());
   }
 
   delay(BNO055_SAMPLERATE_DELAY_MS);
