@@ -1,3 +1,4 @@
+from PIL import Image
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
@@ -6,6 +7,7 @@ import csv
 
 from matplotlib.widgets import Slider
 from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.image as mpimg
 
 import tkinter as tk
 from tkinter import filedialog
@@ -16,6 +18,14 @@ def select_file():
         return file_path
 
 filename = select_file()
+
+#import assets
+racket_img = np.array(Image.open('../Assets/racket.png'))
+racket_img_processed = (racket_img[:, :, 0] * racket_img[:, :, 1]) / 255.0
+racket_img_processed = racket_img[:, :, 1] / 255.0  # Use the first channel and normalize
+racket_img_processed = racket_img_processed / np.max(racket_img_processed)
+racket_img_processed = racket_img_processed[:2, :2]  # Match grid dimensions as needed
+print(racket_img_processed)
 
 #import csv
 data = []
@@ -58,7 +68,24 @@ def draw_player(shoulder_angle, elbow_angle, wrist_angle):
     # Draw the arms
     ax.plot([shoulder[0], elbow[0]], [shoulder[1], elbow[1]], [shoulder[2], elbow[2]], color='blue', linewidth=6)
     ax.plot([elbow[0], wrist[0]], [elbow[1], wrist[1]], [elbow[2], wrist[2]], color='blue', linewidth=6)
-    ax.plot([wrist[0], racket[0]], [wrist[1], racket[1]], [wrist[2], racket[2]], color='red', linewidth=3)  # Racket
+
+    # Display the tennis racket image
+    racket_width = 0.3
+    racket_height = 0.5
+
+    # Coordinates of the racket image
+    x_img = [racket[0] - racket_width / 2, racket[0] + racket_width / 2]
+    y_img = [racket[1] - racket_height / 2, racket[1] + racket_height / 2]
+    z_img = [racket[2], racket[2]]
+
+    ax.plot_surface(
+        np.array([[x_img[0], x_img[1]], [x_img[0], x_img[1]]]),
+        np.array([[y_img[0], y_img[0]], [y_img[1], y_img[1]]]),
+        np.array([[z_img[0], z_img[0]], [z_img[1], z_img[1]]]),
+        rstride=1, cstride=1, facecolors=plt.cm.plasma(racket_img_processed),
+        shade=False, alpha=1.0
+    )
+
     ax.plot([0, 0], [0, 0], [0, -1], color='green', linewidth=8)  # Body
 
     # Set limits and labels
