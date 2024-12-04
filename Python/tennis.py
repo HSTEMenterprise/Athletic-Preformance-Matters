@@ -6,26 +6,19 @@ import time
 import csv
 
 from matplotlib.widgets import Slider
-from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import axes3d
 import matplotlib.image as mpimg
 
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import simpledialog
 
 def select_file():
-    file_path = filedialog.askopenfilename(title="Select a file", filetypes=(("CSV files", "*.csv"), ("All files", "*.*")))
+    file_path = filedialog.askopenfilename(title="select a file", filetypes=[("all files", "*.*")])
     if file_path:
         return file_path
 
 filename = select_file()
-
-#import assets
-racket_img = np.array(Image.open('../Assets/racket.png'))
-racket_img_processed = (racket_img[:, :, 0] * racket_img[:, :, 1]) / 255.0
-racket_img_processed = racket_img[:, :, 1] / 255.0  # Use the first channel and normalize
-racket_img_processed = racket_img_processed / np.max(racket_img_processed)
-racket_img_processed = racket_img_processed[:2, :2]  # Match grid dimensions as needed
-print(racket_img_processed)
 
 #import csv
 data = []
@@ -69,23 +62,6 @@ def draw_player(shoulder_angle, elbow_angle, wrist_angle):
     ax.plot([shoulder[0], elbow[0]], [shoulder[1], elbow[1]], [shoulder[2], elbow[2]], color='blue', linewidth=6)
     ax.plot([elbow[0], wrist[0]], [elbow[1], wrist[1]], [elbow[2], wrist[2]], color='blue', linewidth=6)
 
-    # Display the tennis racket image
-    racket_width = 0.3
-    racket_height = 0.5
-
-    # Coordinates of the racket image
-    x_img = [racket[0] - racket_width / 2, racket[0] + racket_width / 2]
-    y_img = [racket[1] - racket_height / 2, racket[1] + racket_height / 2]
-    z_img = [racket[2], racket[2]]
-
-    ax.plot_surface(
-        np.array([[x_img[0], x_img[1]], [x_img[0], x_img[1]]]),
-        np.array([[y_img[0], y_img[0]], [y_img[1], y_img[1]]]),
-        np.array([[z_img[0], z_img[0]], [z_img[1], z_img[1]]]),
-        rstride=1, cstride=1, facecolors=plt.cm.plasma(racket_img_processed),
-        shade=False, alpha=1.0
-    )
-
     ax.plot([0, 0], [0, 0], [0, -1], color='green', linewidth=8)  # Body
 
     # Set limits and labels
@@ -115,9 +91,41 @@ firstShoulderPos = data[i[0]]
 # Initial draw
 draw_player(data[i[0]], elbow_angle, wrist_angle)
 
+def handle_close():
+    sys.exit()
+
+def handle_open_file(data):
+    filename = select_file()
+    if filename:
+        with open(filename, 'r') as file:
+            reader = csv.reader(file, delimiter=' ')
+            for row in reader:
+                cleaned_row = [float(value) for value in row if value]
+                data.append(cleaned_row)
+        print("File loaded successfully!")
+        root.destroy()
+
 while True:
-    i[0] += 1
-    print(data[i[0]])
-    draw_player(data[i[0]], slider_elbow.val, slider_wrist.val)
-    plt.draw()
-    plt.pause(0.01)
+    if i[0] < len(data) - 1:
+        i[0] += 1
+        print(data[i[0]])
+        draw_player(data[i[0]], slider_elbow.val, slider_wrist.val)
+        plt.draw()
+        plt.pause(0.01)
+    else:
+        # Main application
+        data = []  # List to store the loaded data
+
+        root = tk.Tk()
+        root.title("Choose an Option")
+        root.geometry("300x150")
+
+        # Add buttons
+        close_button = tk.Button(root, text="Close", command=handle_close)
+        close_button.pack(pady=10)
+
+        open_file_button = tk.Button(root, text="Open a New File", command=lambda: handle_open_file(data))
+        open_file_button.pack(pady=10)
+
+        # Start the GUI loop
+        root.mainloop()
