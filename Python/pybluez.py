@@ -1,7 +1,7 @@
 import bluetooth
 
 # Replace with the device name of your ESP32
-target_name = "ESP32-BT-Sensor"
+target_name = "ESP32"
 target_address = None
 
 print("Searching for devices...")
