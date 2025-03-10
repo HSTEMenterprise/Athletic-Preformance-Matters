@@ -1,0 +1,188 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1344
+load:0x40078000,len:13964
+load:0x40080400,len:3600
+entry 0x400805f0
+Orientation Sensor Test
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1344
+load:0x40078000,len:13964
+load:0x40080400,len:3600
+entry 0x400805f0
+Orientation Sensor Test
+⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮⸮----
+Sensor:       BNO055
+Driver Ver:   1
+Unique ID:    55
+Max Value:    0.00 xxx
+Min Value:    0.00 xxx
+Resolution:   0.01 xxx
+------------------------------------
+
+Do you want to calibrate/zero the sensor? (y/n)
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1344
+load:0x40078000,len:13964
+load:0x40080400,len:3600
+entry 0x400805f0
+Orientation Sensor Test
+------------------------------------
+Sensor:       BNO055
+Driver Ver:   1
+Unique ID:    55
+Max Value:    0.00 xxx
+Min Value:    0.00 xxx
+Resolution:   0.01 xxx
+------------------------------------
+
+Do you want to calibrate/zero the sensor? (y/n)
+Hold your arm at side (Z axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm at side (Z axis) calibration complete.
+X: 87.56
+Y: -72.62
+Z: -144.75
+Hold your arm out at side (X axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm out at side (X axis) calibration complete.
+X: 62.13
+Y: -6.31
+Z: -89.75
+Hold your arm in front (Y axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm in front (Y axis) calibration complete.
+X: 318.00
+Y: 1.50
+Z: -93.25
+Final reference axis offsets:
+X: 62.13
+Y: 1.50
+Z: -144.75
+Offsets zeroed. Calibration complete.
+Press 'S' to start recording or 'E' to end.
+Recording will start in 3 seconds...
+31.62, -75.31, 4.44
+32.50, -75.31, 3.69
+33.25, -75.37, 3.25
+33.75, -75.37, 3.00
+34.06, -75.37, 2.81
+34.44, -75.37, 2.69
+35.63, -75.62, 2.81
+39.13, -75.81, 11.25
+41.31, -72.81, 31.44
+38.38, -64.94, 46.31
+31.56, -54.81, 54.44
+25.44, -44.94, 58.19
+20.31, -36.44, 60.19
+16.44, -28.87, 60.81
+12.81, -21.81, 61.56
+10.31, -15.94, 60.75
+8.00, -10.81, 59.38
+6.31, -6.44, 57.94
+4.87, -2.62, 57.00
+3.25, 0.44, 56.75
+2.75, 1.62, 56.56
+3.50, 1.06, 55.81
+3.62, 1.19, 55.81
+3.12, 2.12, 56.44
+3.56, 2.37, 56.25
+3.69, 2.31, 56.31
+5.25, 0.75, 56.63
+9.25, -3.69, 57.19
+15.44, -10.88, 57.44
+23.31, -19.75, 57.81
+30.87, -28.81, 57.69
+36.06, -36.81, 57.06
+40.88, -44.63, 55.75
+46.00, -52.56, 53.44
+51.63, -59.56, 49.06
+54.25, -65.56, 45.63
+54.31, -69.69, 42.25
+56.13, -72.37, 35.25
+52.13, -75.00, 30.31
+48.13, -77.12, 23.25
+45.69, -77.81, 14.00
+41.63, -78.00, 13.94
+37.81, -77.94, 13.69
+34.00, -78.12, 14.56
+27.12, -77.44, 21.00
+15.94, -72.75, 28.81
+-1.81, -64.12, 38.44
+-19.06, -52.13, 43.56
+-38.06, -38.25, 47.25
+-51.75, -27.12, 50.31
+-61.44, -18.06, 52.88
+291.25, -10.88, 54.31
+284.12, -4.87, 55.13
+278.00, 0.00, 56.25
+273.19, 3.81, 57.00
+271.56, 5.19, 58.19
+270.44, 5.25, 59.25
+269.69, 5.19, 59.56
+269.06, 5.00, 59.63
+268.56, 4.37, 59.50
+269.87, 2.06, 59.69
+273.87, -3.62, 59.31
+281.37, -12.31, 57.31
+290.62, -22.62, 55.06
+-57.94, -34.38, 52.25
+-43.56, -47.63, 48.13
+-30.62, -59.81, 41.69
+-22.44, -66.94, 33.94
+-16.81, -70.75, 24.75
+-11.19, -72.62, 12.88
+-6.94, -74.37, 5.87
+0.56, -74.06, 2.19
+4.56, -73.37, 2.12
+9.06, -73.25, 0.88
+9.88, -73.25, 1.69
+9.00, -73.25, 2.56
+9.31, -73.25, 2.50
+9.06, -73.25, 2.69
+9.06, -73.25, 2.69
+Recording stopped.

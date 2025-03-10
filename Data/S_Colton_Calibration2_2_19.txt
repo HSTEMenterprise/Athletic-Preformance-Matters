@@ -1,0 +1,141 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1344
+load:0x40078000,len:13964
+load:0x40080400,len:3600
+entry 0x400805f0
+Orientation Sensor Test
+------------------------------------
+Sensor:       BNO055
+Driver Ver:   1
+Unique ID:    55
+Max Value:    0.00 xxx
+Min Value:    0.00 xxx
+Resolution:   0.01 xxx
+------------------------------------
+
+Do you want to calibrate/zero the sensor? (y/n)
+Hold your arm at side (Z axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm at side (Z axis) calibration complete.
+X: 29.00
+Y: -63.13
+Z: 20.44
+Hold your arm out at side (X axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm out at side (X axis) calibration complete.
+X: 36.81
+Y: -7.31
+Z: 8.38
+Hold your arm in front (Y axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm in front (Y axis) calibration complete.
+X: 356.00
+Y: -16.12
+Z: -11.81
+Final reference axis offsets:
+X: 36.81
+Y: -16.12
+Z: 20.44
+Offsets zeroed. Calibration complete.
+Press 'S' to start recording or 'E' to end.
+Recording will start in 3 seconds...
+34.50, -45.38, 3.69
+34.75, -45.31, 3.50
+35.13, -45.38, 3.69
+35.63, -45.38, 3.81
+36.06, -45.38, 3.81
+36.44, -45.50, 3.56
+37.50, -45.88, 3.50
+39.13, -45.00, 4.87
+40.50, -39.69, 4.56
+42.25, -31.44, 3.50
+44.00, -22.44, 2.50
+45.75, -14.13, 0.69
+46.88, -6.50, -0.94
+47.63, 0.81, -2.31
+47.94, 6.87, -3.75
+48.31, 13.31, -4.94
+48.44, 19.31, -5.94
+48.69, 24.06, -6.37
+49.00, 25.81, -6.56
+48.88, 24.31, -6.62
+48.56, 20.56, -6.62
+48.31, 15.44, -6.44
+48.00, 9.56, -6.19
+47.38, 3.69, -5.94
+46.69, -2.56, -5.75
+46.13, -9.56, -5.25
+45.50, -18.19, -3.87
+44.69, -26.12, -2.94
+44.50, -33.25, -0.94
+44.69, -39.19, 0.88
+45.06, -43.50, 2.94
+45.38, -46.13, 3.87
+45.44, -47.44, 4.75
+44.63, -46.50, 3.62
+43.63, -46.44, 3.00
+41.56, -45.69, 1.44
+38.00, -43.19, -4.06
+33.50, -38.13, -11.75
+29.37, -30.44, -18.00
+25.69, -22.06, -23.06
+22.19, -13.94, -25.94
+19.31, -7.00, -27.31
+17.44, -0.81, -28.31
+16.19, 5.50, -29.12
+15.38, 10.69, -29.75
+14.88, 15.31, -29.81
+14.69, 18.94, -29.69
+14.69, 19.94, -29.62
+14.75, 18.94, -29.50
+15.13, 16.00, -29.06
+15.75, 10.75, -28.25
+16.62, 4.31, -27.31
+17.81, -2.87, -26.06
+19.44, -9.25, -24.87
+21.37, -15.38, -23.75
+23.62, -21.75, -22.75
+26.31, -28.31, -20.75
+29.31, -34.69, -17.12
+33.38, -40.19, -11.31
+37.63, -44.00, -3.19
+42.00, -46.06, 4.12
+44.94, -46.44, 7.50
+46.06, -45.94, 6.87
+45.63, -45.50, 6.00
+Recording stopped.

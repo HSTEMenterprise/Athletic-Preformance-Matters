@@ -1,0 +1,138 @@
+e⸮ Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x0 (DOWNLOAD_BOOT(UART0/UART1/SDIO_FEI_FEO_V2))
+waiting for download
+eets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1344
+load:0x40078000,len:13964
+load:0x40080400,len:3600
+entry 0x400805f0
+Orientation Sensor Test
+------------------------------------
+Sensor:       BNO055
+Driver Ver:   1
+Unique ID:    55
+Max Value:    0.00 xxx
+Min Value:    0.00 xxx
+Resolution:   0.01 xxx
+------------------------------------
+
+Do you want to calibrate/zero the sensor? (y/n)
+Hold your arm at side (Z axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm at side (Z axis) calibration complete.
+X: 6.06
+Y: -63.56
+Z: 21.75
+Hold your arm out at side (X axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm out at side (X axis) calibration complete.
+X: 19.00
+Y: -10.56
+Z: 10.63
+Hold your arm in front (Y axis) steady for 10 seconds.
+Hold for 10 seconds...
+Hold for 9 seconds...
+Hold for 8 seconds...
+Hold for 7 seconds...
+Hold for 6 seconds...
+Hold for 5 seconds...
+Hold for 4 seconds...
+Hold for 3 seconds...
+Hold for 2 seconds...
+Hold for 1 seconds...
+Calibrating sensors...
+arm in front (Y axis) calibration complete.
+X: 339.81
+Y: -18.37
+Z: -15.94
+Final reference axis offsets:
+X: 19.00
+Y: -18.37
+Z: 21.75
+Offsets zeroed. Calibration complete.
+Press 'S' to start recording or 'E' to end.
+Recording will start in 3 seconds...
+47.25, -44.63, 3.50
+47.25, -44.63, 3.50
+47.38, -44.63, 3.56
+47.44, -44.63, 3.56
+47.56, -44.63, 3.56
+47.50, -44.88, 3.19
+48.31, -45.06, 3.50
+48.44, -40.50, 2.25
+48.88, -32.06, 0.25
+50.13, -21.87, -1.44
+51.38, -11.94, -3.62
+52.25, -3.06, -5.50
+52.81, 4.87, -7.25
+53.31, 11.38, -8.63
+53.63, 17.69, -9.50
+54.00, 22.94, -10.44
+54.38, 26.06, -10.88
+54.56, 25.94, -10.88
+54.31, 22.56, -10.75
+53.56, 16.87, -10.50
+52.75, 10.00, -10.38
+51.69, 2.37, -9.50
+50.56, -5.06, -8.44
+49.69, -12.56, -7.19
+48.94, -20.37, -6.50
+48.38, -27.50, -5.06
+47.94, -33.38, -4.19
+47.75, -38.44, -2.81
+47.69, -42.50, -0.37
+47.88, -45.19, 1.87
+48.19, -44.94, 2.00
+46.44, -43.88, -0.44
+43.25, -42.69, -4.75
+38.19, -39.69, -11.44
+33.00, -34.56, -20.12
+27.81, -26.00, -27.12
+23.62, -17.12, -31.81
+19.81, -8.38, -34.31
+17.31, -0.69, -35.56
+15.63, 5.81, -36.44
+14.63, 12.06, -36.88
+14.00, 17.56, -36.81
+14.19, 21.37, -36.44
+14.69, 22.50, -36.06
+14.94, 20.50, -35.69
+15.31, 15.63, -34.69
+16.25, 8.19, -33.31
+17.37, -0.62, -32.00
+19.12, -9.44, -30.06
+21.44, -17.94, -28.00
+24.19, -25.06, -25.69
+27.75, -30.50, -22.06
+31.31, -34.81, -17.94
+35.81, -38.69, -12.63
+39.75, -40.88, -5.19
+43.19, -41.63, 2.31
+46.25, -41.81, 7.50
+Recording stopped.
