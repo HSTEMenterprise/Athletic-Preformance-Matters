@@ -1,4 +1,4 @@
-6#include <Wire.h>
+#include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <EEPROM.h>
