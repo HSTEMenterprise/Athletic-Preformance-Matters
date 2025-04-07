@@ -1,5 +1,5 @@
-#include </home/Adithya/.arduino15/packages/esp32/hardware/esp32/3.1.1/libraries/BLE/src/BLEDevice.h>
-#include </home/Adithya/.arduino15/packages/esp32/hardware/esp32/3.1.1/libraries/BLE/src/BLEServer.h>
+#include <BLEDevice.h>
+#include <BLEServer.h>
 #include <BLEUtils.h>
 #include <BLE2902.h>
 #include <BLE2901.h>

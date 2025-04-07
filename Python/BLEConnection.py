@@ -4,7 +4,8 @@ import time
 
 from bleak import BleakClient, BleakScanner
 
-address = "88:13:BF:0D:9E:86"
+address = "D4:8A:FC:C9:CA:EA"
+
 name = "ESP32"
 characteristics = {"1": "e2f5435e-634f-44d3-9c7f-54bfe8c96e64", "2":  "0eb71bcb-eb31-4f19-88b9-116a4e52a2c4", "3":  "801b2ee2-e7b6-4aa8-ae2d-4e82b426d157" }
 duration = "50000"
@@ -16,12 +17,12 @@ async def run_ble_client(queues: dict):
     """Scans for the BLE device and starts notification for multiple characteristics."""
     print("Starting scan...")
 
-    if address:
-        device = await BleakScanner.find_device_by_address(address)
-        if device is None:
-            print("Could not find device with address '%s'", address)
-            raise DeviceNotFoundError
-    else:
+#   //  if address:
+#         device = await BleakScanner.find_device_by_address(address)
+#         if device is None:
+#             print("Could not find device with address '%s'", address)
+#             raise DeviceNotFoundError
+    if name:
         device = await BleakScanner.find_device_by_name(name)
         if device is None:
             print("Could not find device with name '%s'", name)
