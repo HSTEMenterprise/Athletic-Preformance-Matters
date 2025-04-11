@@ -1,44 +1,23 @@
-Orientation (relative to zeroed reference): X: 198.44, Y: -39.13, Z: -20.06
-Orientation (relative to zeroed reference): X: 213.44, Y: -54.81, Z: -7.19
-Orientation (relative to zeroed reference): X: 222.56, Y: -59.19, Z: 70.81
-Orientation (relative to zeroed reference): X: 236.31, Y: -21.62, Z: 129.94
-Orientation (relative to zeroed reference): X: 263.94, Y: 13.31, Z: 123.87
-Orientation (relative to zeroed reference): X: 352.81, Y: 19.06, Z: 139.00
-Orientation (relative to zeroed reference): X: 129.81, Y: 5.19, Z: 92.62
-Orientation (relative to zeroed reference): X: 94.12, Y: -8.06, Z: 48.75
-Orientation (relative to zeroed reference): X: 79.87, Y: -23.62, Z: 38.88
-Orientation (relative to zeroed reference): X: 72.56, Y: -31.75, Z: 40.25
-Orientation (relative to zeroed reference): X: 78.50, Y: -28.37, Z: 40.31
-Orientation (relative to zeroed reference): X: 91.62, Y: -17.31, Z: 36.75
-Orientation (relative to zeroed reference): X: 106.62, Y: -3.62, Z: 28.25
-Orientation (relative to zeroed reference): X: 115.56, Y: 10.50, Z: 30.37
-Orientation (relative to zeroed reference): X: 114.81, Y: 21.31, Z: 25.81
-Orientation (relative to zeroed reference): X: 110.81, Y: 22.37, Z: 24.75
-Orientation (relative to zeroed reference): X: 108.19, Y: 22.00, Z: 28.37
-Orientation (relative to zeroed reference): X: 105.87, Y: 20.69, Z: 30.25
-Orientation (relative to zeroed reference): X: 104.25, Y: 19.56, Z: 31.50
-Orientation (relative to zeroed reference): X: 105.19, Y: 18.31, Z: 32.31
-Orientation (relative to zeroed reference): X: 107.56, Y: 17.25, Z: 33.00
-Orientation (relative to zeroed reference): X: 109.69, Y: 16.56, Z: 33.81
-Orientation (relative to zeroed reference): X: 198.44, Y: -39.13, Z: -20.06
-Orientation (relative to zeroed reference): X: 213.44, Y: -54.81, Z: -7.19
-Orientation (relative to zeroed reference): X: 222.56, Y: -59.19, Z: 70.81
-Orientation (relative to zeroed reference): X: 236.31, Y: -21.62, Z: 129.94
-Orientation (relative to zeroed reference): X: 263.94, Y: 13.31, Z: 123.87
-Orientation (relative to zeroed reference): X: 352.81, Y: 19.06, Z: 139.00
-Orientation (relative to zeroed reference): X: 129.81, Y: 5.19, Z: 92.62
-Orientation (relative to zeroed reference): X: 94.12, Y: -8.06, Z: 48.75
-Orientation (relative to zeroed reference): X: 79.87, Y: -23.62, Z: 38.88
-Orientation (relative to zeroed reference): X: 72.56, Y: -31.75, Z: 40.25
-Orientation (relative to zeroed reference): X: 78.50, Y: -28.37, Z: 40.31
-Orientation (relative to zeroed reference): X: 91.62, Y: -17.31, Z: 36.75
-Orientation (relative to zeroed reference): X: 106.62, Y: -3.62, Z: 28.25
-Orientation (relative to zeroed reference): X: 115.56, Y: 10.50, Z: 30.37
-Orientation (relative to zeroed reference): X: 114.81, Y: 21.31, Z: 25.81
-Orientation (relative to zeroed reference): X: 110.81, Y: 22.37, Z: 24.75
-Orientation (relative to zeroed reference): X: 108.19, Y: 22.00, Z: 28.37
-Orientation (relative to zeroed reference): X: 105.87, Y: 20.69, Z: 30.25
-Orientation (relative to zeroed reference): X: 104.25, Y: 19.56, Z: 31.50
-Orientation (relative to zeroed reference): X: 105.19, Y: 18.31, Z: 32.31
-Orientation (relative to zeroed reference): X: 107.56, Y: 17.25, Z: 33.00
-Orientation (relative to zeroed reference): X: 109.69, Y: 16.56, Z: 33.81
+94.12 -8.06 48.75
+79.87 -23.62 38.88
+72.56 -31.75 40.25
+78.50 -28.37 40.31
+91.62 -17.31 36.75
+106.62 -3.62 28.25
+115.56 10.50 30.37
+114.81 21.31 25.81
+110.81 22.37 24.75
+108.19 22.00 28.37
+105.87 20.69 30.25
+104.25 19.56 31.50
+105.19 18.31 32.31
+107.56 17.25 33.00
+109.69 16.56 33.81
+198.44 -39.13 -20.06
+213.44 -54.81 -7.19
+222.56 -59.19 70.81
+236.31 -21.62 129.94
+263.94 13.31 123.87
+352.81 19.06 139.00
+129.81 5.19 92.62
+94.12 -8.06 48.75
