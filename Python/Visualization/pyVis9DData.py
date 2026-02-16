@@ -1,3 +1,10 @@
+'''
+Author: Sawyer + Others
+Date: 2025ish
+Last Updated: idk
+Purpose: Visualizer on pyvis for 9D data (one file) (shoulder, elbow, wrist angles) with image texture
+'''
+
 import os
 import pyvista as pv
 import pyvistaqt as pvqt
