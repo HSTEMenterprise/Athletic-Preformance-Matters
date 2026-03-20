@@ -26,7 +26,7 @@ WRIST_C_UUID = "004dac4c-c660-11f0-8de9-0242ac120002"
 def create_new_csv_file(body_part) -> str:
     """Create a fresh CSV file and return a unique filename."""
     name = f"{body_part}-xyz-data-{date.today().strftime('%Y-%m-%d')}.csv"
-    field_names = ["shoulderx", "shouldery", "shoulderz", "elbowx", "elbowy", "elbowz", "wristx", "wristy", "wristz"]
+    field_names = ["x", "y", "z"]
     with open(name, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=field_names)
         writer.writeheader()
