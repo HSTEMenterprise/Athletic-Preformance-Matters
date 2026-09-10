@@ -1,3 +1,9 @@
+'''
+Author: Sawyer
+Date: 2025ish
+Purpose: Visualizer on pyvis
+'''
+
 import os
 import pyvista as pv
 import pyvistaqt as pvqt
