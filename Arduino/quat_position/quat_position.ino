@@ -92,8 +92,6 @@ void loop() {
   double relOrientationY = orientationData.orientation.y - initOrientationY;
   double relOrientationZ = orientationData.orientation.z - initOrientationZ;
 
-  imu::Quaternion quat = bno.getQuat();
-
   // Print the data at the defined interval
   static uint16_t printCount = 0;
   if (printCount * BNO055_SAMPLERATE_DELAY_MS >= PRINT_DELAY_MS) {
@@ -129,6 +127,7 @@ void printSensorData(sensors_event_t* orientationData, sensors_event_t* linearAc
   double relOrientationY = orientationData->orientation.y - initOrientationY;
   double relOrientationZ = orientationData->orientation.z - initOrientationZ;
 
+imu::Quaternion quat = bno.getQuat();
 /* Display the quat data */
   Serial.print("Quaternion Data: ");
   Serial.print("qW: ");
