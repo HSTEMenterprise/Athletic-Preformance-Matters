@@ -45,7 +45,7 @@ def normalize_angle(angle):
 # Open file 1 for shoulder
 filename = select_file()
 with open(filename, 'r') as f:
-    reader = csv.reader(f, delimiter=" ")
+    reader = csv.reader(f, delimiter=",")
     for row in reader:
         try:
             shoulder_angles_list.append([
@@ -60,7 +60,7 @@ with open(filename, 'r') as f:
 # Open file 2 for elbow
 filename = select_file()
 with open(filename, 'r') as f:
-    reader = csv.reader(f, delimiter=" ")
+    reader = csv.reader(f, delimiter=",")
     for row in reader:
         try:
             elbow_angles_list.append([
@@ -75,7 +75,7 @@ with open(filename, 'r') as f:
 # Open file 3 for wrist
 filename = select_file()
 with open(filename, 'r') as f:
-    reader = csv.reader(f, delimiter=" ")
+    reader = csv.reader(f, delimiter=",")
     for row in reader:
         try:
             wrist_angles_list.append([
@@ -303,4 +303,4 @@ def update_scene():
 plotter.add_callback(update_scene, interval=10)  # Runs update_scene every 50ms
 
 # Keep window open
-plotter.app.exec_()
+plotter.show()

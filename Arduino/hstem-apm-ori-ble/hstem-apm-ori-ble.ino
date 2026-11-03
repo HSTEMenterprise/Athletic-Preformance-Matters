@@ -14,8 +14,8 @@ Adafruit_BNO055 bno = Adafruit_BNO055(55);
    If you change these to new values, make sure to change them on 
    the python side as well.
 */
-#define SERVICE_UUID        "f06a5de9-5c7e-4b20-aef9-c120fb6711e4"
-#define CHARACTERISTIC_UUID "f2181a7e-86de-4c6f-8d0d-1df47cadcd30"
+#define SERVICE_UUID        "0b09a3c8-29f9-11f1-8de9-0242ac120002"
+#define CHARACTERISTIC_UUID "0b09a544-29f9-11f1-8de9-0242ac120002"
 
 NimBLEServer* server = nullptr;
 NimBLECharacteristic* characteristic = nullptr;
@@ -43,7 +43,7 @@ void setup() {
   bno.setExtCrystalUse(true);
 
   /* Initialize BLE system. */
-  NimBLEDevice::init("ESP32_Ori_Sensor");
+  NimBLEDevice::init("ESP32_Ori_Sensor_Shoulder");
   server = NimBLEDevice::createServer();
   server->setCallbacks(new ServerCallbacks());
 

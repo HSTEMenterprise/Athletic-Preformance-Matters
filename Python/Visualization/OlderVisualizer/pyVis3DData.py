@@ -1,3 +1,10 @@
+'''
+Author: Sawyer + Others
+Date: 2025ish
+Last Updated: idk
+Purpose: Visualizer on pyvis for 3D data (shoulder, elbow, wrist angles) with image texture
+'''
+
 import os
 import pyvista as pv
 import pyvistaqt as pvqt
@@ -42,45 +49,38 @@ RACKET_LENGTH = 0
 # Fixed shoulder position (origin)
 SHOULDER_POS = np.array([0.0, 0.0, 0.0])
 
-# Load CSV data (Expecting: shoulder_angle_x, shoulder_angle_y, shoulder_angle_z,
-# elbow_angle_x, elbow_angle_y, elbow_angle_z,
-# wrist_angle_x, wrist_angle_y, wrist_angle_z)
+# Load CSV data (Expecting: shoulder_angle_x, shoulder_angle_y, shoulder_angle_z)
 frames = []
 with open(filename, 'r') as f:
     reader = csv.reader(f)
     for row in reader:
         try:
-            shoulder_angles = [float(row[0]), float(row[1]), float(row[2])]
-            elbow_angles = [float(row[3]), float(row[4]), float(row[5])]
-            wrist_angles = [float(row[6]), float(row[7]), float(row[8])]
+            shoulder_angle_x = float(row[0])
+            shoulder_angle_y = float(row[1])
+            shoulder_angle_z = float(row[2])
         except:
             continue  # Skip malformed rows
-        frames.append((shoulder_angles, elbow_angles, wrist_angles))
+        frames.append((shoulder_angle_x, shoulder_angle_y, shoulder_angle_z))
 
 # If no data, create dummy oscillating movement
 if not frames:
     t = np.linspace(0, 2*np.pi, 100)
-    frames = [
-        (
-            [30*np.sin(x), 30*np.cos(x), 15*np.sin(2*x)],  # Shoulder angles
-            [45*np.sin(x), 45*np.cos(x), 20*np.sin(2*x)],  # Elbow angles
-            [60*np.sin(x), 60*np.cos(x), 25*np.sin(2*x)]   # Wrist angles
-        )
-        for x in t
-    ]
+    frames = [(30*np.sin(x), 30*np.cos(x), 15*np.sin(2*x)) for x in t]
 
 # Initialize angles
 frame_index = 0
-shoulder_angles, elbow_angles, wrist_angles = frames[frame_index]
+shoulder_angles = np.array(frames[frame_index])
+elbow_angle = 90.0
+wrist_angle = 180.0
 
 # Function to compute joint positions
-def compute_positions(shoulder_angles, elbow_angles, wrist_angles):
+def compute_positions(shoulder_angles, elbow_deg, wrist_deg):
     """Compute positions of elbow, wrist, and racket based on joint angles."""
 
     # Convert angles to radians
     shoulder_rad = np.radians(shoulder_angles)
-    elbow_rad = np.radians(elbow_angles)
-    wrist_rad = np.radians(wrist_angles)
+    elbow_rad = np.radians(elbow_deg)
+    wrist_rad = np.radians(wrist_deg)
 
     # Compute elbow position (shoulder -> elbow direction)
     elbow_pos = SHOULDER_POS + np.array([
@@ -90,23 +90,25 @@ def compute_positions(shoulder_angles, elbow_angles, wrist_angles):
     ])
 
     # Compute wrist position (elbow -> wrist direction)
+    forearm_angle = np.radians(180.0 - elbow_deg)
     wrist_pos = elbow_pos + np.array([
-        FOREARM_LENGTH * np.cos(elbow_rad[0]) * np.cos(elbow_rad[1]),
-        FOREARM_LENGTH * np.sin(elbow_rad[0]) * np.cos(elbow_rad[1]),
-        FOREARM_LENGTH * np.sin(elbow_rad[1])
+        FOREARM_LENGTH * np.cos(forearm_angle) * np.cos(shoulder_rad[2]),
+        FOREARM_LENGTH * np.sin(forearm_angle) * np.cos(shoulder_rad[2]),
+        FOREARM_LENGTH * np.sin(shoulder_rad[2])
     ])
 
     # Compute racket position (wrist -> racket direction)
+    racket_angle = forearm_angle + np.radians(180.0 - wrist_deg)
     racket_end_pos = wrist_pos + np.array([
-        RACKET_LENGTH * np.cos(wrist_rad[0]) * np.cos(wrist_rad[1]),
-        RACKET_LENGTH * np.sin(wrist_rad[0]) * np.cos(wrist_rad[1]),
-        RACKET_LENGTH * np.sin(wrist_rad[1])
+        RACKET_LENGTH * np.cos(racket_angle),
+        RACKET_LENGTH * np.sin(racket_angle),
+        0.0
     ])
 
     return elbow_pos, wrist_pos, racket_end_pos
 
 # Compute initial joint positions
-elbow_pos, wrist_pos, racket_end_pos = compute_positions(shoulder_angles, elbow_angles, wrist_angles)
+elbow_pos, wrist_pos, racket_end_pos = compute_positions(shoulder_angles, elbow_angle, wrist_angle)
 
 # Create PyVista plotter
 plotter = pvqt.BackgroundPlotter()
@@ -143,16 +145,16 @@ def interpolate_positions(start, end, num_points=10):
 
 # Update function with interpolation
 def update_scene():
-    global frame_index
+    global frame_index, elbow_angle, wrist_angle
 
-    # Get current and next frame data (angles)
-    current_angles = frames[frame_index]
+    # Get current and next frame data (shoulder angles)
+    current_angles = np.array(frames[frame_index])
     next_frame_index = (frame_index + 1) % len(frames)
-    next_angles = frames[next_frame_index]
+    next_angles = np.array(frames[next_frame_index])
 
     # Compute joint positions for current and next frames
-    current_elbow, current_wrist, current_racket_end = compute_positions(*current_angles)
-    next_elbow, next_wrist, next_racket_end = compute_positions(*next_angles)
+    current_elbow, current_wrist, current_racket_end = compute_positions(current_angles, elbow_angle, wrist_angle)
+    next_elbow, next_wrist, next_racket_end = compute_positions(next_angles, elbow_angle, wrist_angle)
 
     # Interpolate positions
     interpolated_elbow = interpolate_positions(current_elbow, next_elbow)
@@ -175,22 +177,22 @@ def update_scene():
     # Move to next frame
     frame_index = next_frame_index
 
-# # Slider callbacks
-# def on_elbow_slider(value):
-#     global elbow_angle
-#     elbow_angle = value
-#     update_scene()
+# Slider callbacks
+def on_elbow_slider(value):
+    global elbow_angle
+    elbow_angle = value
+    update_scene()
 
-# def on_wrist_slider(value):
-#     global wrist_angle
-#     wrist_angle = value
-#     update_scene()
+def on_wrist_slider(value):
+    global wrist_angle
+    wrist_angle = value
+    update_scene()
 
-# # Add sliders
-# plotter.add_slider_widget(on_elbow_slider, [0.0, 180.0], value=elbow_angle, title="Elbow Angle",
-#                           pointa=(0.025, 0.1), pointb=(0.31, 0.1))
-# plotter.add_slider_widget(on_wrist_slider, [0.0, 180.0], value=wrist_angle, title="Wrist Angle",
-#                           pointa=(0.025, 0.05), pointb=(0.31, 0.05))
+# Add sliders
+plotter.add_slider_widget(on_elbow_slider, [0.0, 180.0], value=elbow_angle, title="Elbow Angle",
+                          pointa=(0.025, 0.1), pointb=(0.31, 0.1))
+plotter.add_slider_widget(on_wrist_slider, [0.0, 180.0], value=wrist_angle, title="Wrist Angle",
+                          pointa=(0.025, 0.05), pointb=(0.31, 0.05))
 
 # Start animation loop
 plotter.add_callback(update_scene, interval=25)  # Runs update_scene every 50ms

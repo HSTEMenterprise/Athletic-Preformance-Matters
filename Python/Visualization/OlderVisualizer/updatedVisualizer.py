@@ -1,3 +1,9 @@
+'''
+Author: Sawyer + Others
+Date: 2025ish
+Last Updated: 2/2/2026
+Purpose: Visualizer on pyvis for 3D data (shoulder, elbow, wrist angles) with image texture
+'''
 
 import os
 import pyvista as pv            #for 3D geometry and visualization data
